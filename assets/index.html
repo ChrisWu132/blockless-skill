@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Blockless · Design review</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#f4f5ef;color:#243028;font:14px/1.5 system-ui,sans-serif}
+    button,label[for=import]{font:inherit;color:inherit;background:white;border:1px solid #ccd2c7;border-radius:6px;padding:8px 12px;cursor:pointer}
+    button:hover,label[for=import]:hover{background:#e8eddf}button:disabled{opacity:.4;cursor:not-allowed}
+    header{display:flex;justify-content:space-between;gap:20px;align-items:center;padding:15px 24px;border-bottom:1px solid #d7dcd1}
+    h1{font-size:19px;margin:0}h2{font-size:14px;margin:20px 0 8px}p{margin:6px 0}small,.quiet{color:#64705f}
+    main{display:grid;grid-template-columns:minmax(0,1fr) 300px;height:calc(100dvh - 79px);min-height:500px}
+    .stage{position:relative;min-width:0;min-height:0}canvas{display:block;width:100%;height:100%;touch-action:none}
+    .views{position:absolute;top:16px;left:16px;display:flex;flex-wrap:wrap;gap:5px}.hint{position:absolute;bottom:15px;left:20px;right:20px;pointer-events:none;font-size:12px}
+    aside{overflow:auto;padding:20px;border-left:1px solid #d7dcd1;background:#fcfdf8}ul{padding-left:18px;font-size:12px}
+    #reference{width:100%;max-height:200px;object-fit:contain;background:#eef0e8;border-radius:7px}#reference[hidden]{display:none}
+    #measure{font-size:22px;font-weight:600}#checks{font-size:12px;padding:10px;background:#edf1e5;border-radius:6px}
+    #checks[data-pass=false],#error{color:#8d3521;background:#fff0e7}#error:empty{display:none}#error{padding:12px}
+    .actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px}input[type=file]{display:none}
+    @media(max-width:700px){header{padding:12px;align-items:start}header>small{max-width:130px}main{display:block;height:auto;min-height:0}.stage{height:55dvh;min-height:320px}aside{border-left:0;border-top:1px solid #d7dcd1}.views button{font-size:12px;padding:6px 9px}}
+  </style>
+</head>
+<body>
+  <header><div><h1 id="title">Loading your design…</h1><small id="revision"></small></div><small>Concept review<br>Engineering remains unverified</small></header>
+  <main>
+    <section class="stage" aria-label="Interactive 3D concept">
+      <canvas id="model" aria-label="Drag to rotate the product; scroll to zoom"></canvas>
+      <div class="views" aria-label="Camera views"><button id="front">Front</button><button id="side">Side</button><button id="back">Back</button><button id="reset">Reset</button></div>
+      <p class="hint">Drag to rotate · Scroll to zoom · Right-drag to pan</p>
+    </section>
+    <aside>
+      <p id="error" role="alert"></p>
+      <img id="reference" alt="Chosen concept reference" hidden>
+      <p id="reference-note" class="quiet"></p>
+      <details><summary>Rough size · optional</summary>
+        <p id="measure">—</p><small>Approximate width × height × depth · mm</small>
+        <p id="target" class="quiet"></p><p class="quiet">A sense of scale, not a guarantee of fit.</p>
+      </details>
+      <p id="checks" role="status">Waiting for geometry</p>
+      <h2>Your requirements</h2><ul id="requirements"></ul>
+      <h2>Proposed / assumed</h2><ul id="assumptions"></ul>
+      <h2>Still to check</h2><ul id="unknowns"></ul>
+      <div class="actions"><button id="export" disabled>Download GLB</button><button id="capture" disabled>Save view</button><label for="import">Check exported GLB</label><input id="import" type="file" accept=".glb"></div>
+      <p class="quiet"><small>Keep this folder to edit the design with your AI. GLB is a visual model, not manufacturing CAD.</small></p>
+    </aside>
+  </main>
+  <script src="viewer.js"></script><script src="model.js"></script>
+</body>
+</html>
