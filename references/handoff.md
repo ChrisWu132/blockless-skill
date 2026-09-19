@@ -4,19 +4,21 @@ Ask before the first send. Uploading a design is the user's decision, not a step
 
 ## Connecting
 
-Blockless is a Streamable HTTP MCP server at https://block-less.com/mcp. Add it yourself rather than asking the user for a token:
+Blockless is a Streamable HTTP MCP server at https://block-less.com/mcp. Run both commands yourself. The user's only part is clicking approve in the browser that opens, so say that first — the login command waits for them.
 
-- Claude Code: `claude mcp add --transport http --scope user blockless https://block-less.com/mcp`, then tell the user to run `/mcp` and approve in the browser that opens.
+- Claude Code: `claude mcp add --transport http --scope user blockless https://block-less.com/mcp`, then `claude mcp login blockless`.
 - Codex: `codex mcp add blockless --url https://block-less.com/mcp`, then `codex mcp login blockless`.
 
-The server answers an unauthenticated call with an OAuth pointer, so a token-capable client discovers the rest on its own, registers itself and opens a browser. The user signs in with Google and approves once; nothing is copied by hand, and the approval can be withdrawn at https://block-less.com/me. A client that cannot do OAuth can still use a personal token from that page. If neither works, use the website's upload control and say so plainly. Never ask the user to paste a token into the conversation, and never block local design on any of this.
+The server answers an unauthenticated call with an OAuth pointer, so the client registers itself and opens a browser on its own. The user signs in with Google and approves once; the approval can be withdrawn at https://block-less.com/me. If the login command reports that no browser could be opened, pass `--no-browser` and give the user the URL it prints.
+
+**Never ask the user to paste a token, run a command, or copy anything from the website.** A personal token from https://block-less.com/me exists only for clients with no OAuth support, and the website's upload control is the fallback when the client has neither. Never block local design on any of this.
 
 ## Tools
 
 With the user's agreement, call `create_project(name, brief)`. Projects are private by default. Save the returned slug for subsequent tools.
 
 - `set_specs(slug, specs)` accepts brief, size, materials, parts, power, light, target_price, target_qty. Send the complete current specification, since this replaces the previous one.
-- `attach_file(slug, type, name, mime, base64)` files under `brief`, `validation`, `3d`, `gerber`, `bom`, `materials`, `photo` or `video`. **No format is refused** — STEP, SolidWorks, Fusion, DWG, Gerbers, a spreadsheet, a photo of a sketch. The category is only filing; when unsure use `materials` for mechanical design and `brief` for anything else. Use exact bytes, never invented base64. The limit through MCP is 10 MB because the bytes travel as base64; larger files go through the workspace upload control, which takes up to 90 MB. Say which one you used.
+- `attach_file(slug, type, name, mime, base64)` files under `brief`, `validation`, `3d`, `gerber`, `bom`, `materials`, `photo` or `video`. **No format is refused** — STEP, SolidWorks, Fusion, DWG, Gerbers, a spreadsheet, a photo of a sketch. The category is only filing; when unsure use `materials` for mechanical design and `brief` for anything else. Use exact bytes, never invented base64. The limit through MCP is 10 MB because the bytes travel as base64; larger files go through the workspace upload control, which takes up to 90 MB. Above that — a large assembly or a full CAD archive — tell the user to email the files to chris@anvol.dev with their project link, and say that is what you are doing rather than splitting or trimming their file. Say which route you used.
 - `push_version(slug, render_file_id, note)` appends an uploaded PNG/JPEG/WebP as the next concept version. It does not make the file public.
 - `get_project(slug)` reads current status, versions, evidence, estimates and decisions.
 

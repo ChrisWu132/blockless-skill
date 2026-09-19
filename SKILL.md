@@ -1,6 +1,10 @@
 ---
 name: blockless
-description: Guide a physical product idea from an early concept image through practical choices and iterative 3D concepts. Use when someone wants to design a product with Blockless or send an existing design for a build estimate or Creator Program review.
+metadata:
+  version: 1.1.0
+  homepage: https://block-less.com/skill
+  source: https://github.com/ChrisWu132/blockless-skill
+description: Design a physical product through pictures - take an idea for a device, gadget, enclosure, lamp, tool or appliance from a concept image through the choices that matter to a rotatable 3D model the user keeps. Use whenever someone wants to design, sketch, model, prototype or get built a physical object, whether or not they name Blockless, and when they want to send an existing design or CAD to Blockless for a build estimate or Creator Program review.
 ---
 
 # Blockless: see it, shape it, turn it around
