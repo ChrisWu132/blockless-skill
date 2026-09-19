@@ -19,6 +19,10 @@ trade-offs and an editable 3D model you keep. The viewer runs locally and needs
 no account. Sending the result to Blockless for a build estimate is a separate,
 optional step that asks for your approval in a browser.
 
+## Licence
+
+MIT, see [LICENSE](LICENSE). Copyright Anvol, Inc.
+
 ## Reading it before you run it
 
 Skills run with your agent's permissions, so read [SKILL.md](SKILL.md) and

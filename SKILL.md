@@ -1,5 +1,6 @@
 ---
 name: blockless
+license: MIT
 metadata:
   version: 1.1.0
   homepage: https://block-less.com/skill
