@@ -21,7 +21,7 @@
   </style>
 </head>
 <body>
-  <header><div><h1 id="title">Loading your design…</h1><small id="revision"></small></div><small>Concept review<br>Engineering remains unverified</small></header>
+  <header><div><h1 id="title">Loading your design…</h1><small id="revision"></small></div></header>
   <main>
     <section class="stage" aria-label="Interactive 3D concept">
       <canvas id="model" aria-label="Drag to rotate the product; scroll to zoom"></canvas>
@@ -36,11 +36,11 @@
         <p id="measure">—</p><small>Approximate width × height × depth · mm</small>
         <p id="target" class="quiet"></p><p class="quiet">A sense of scale, not a guarantee of fit.</p>
       </details>
-      <p id="checks" role="status">Waiting for geometry</p>
+      <p id="checks" role="status" hidden></p>
       <h2>Your requirements</h2><ul id="requirements"></ul>
       <h2>Proposed / assumed</h2><ul id="assumptions"></ul>
       <h2>Still to check</h2><ul id="unknowns"></ul>
-      <div class="actions"><button id="export" disabled>Download GLB</button><button id="capture" disabled>Save view</button><label for="import">Check exported GLB</label><input id="import" type="file" accept=".glb"></div>
+      <div class="actions"><button id="export" disabled>Download GLB</button><label for="import">Check exported GLB</label><input id="import" type="file" accept=".glb"></div>
       <p class="quiet"><small>Keep this folder to edit the design with your AI. GLB is a visual model, not manufacturing CAD.</small></p>
     </aside>
   </main>
