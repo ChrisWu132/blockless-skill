@@ -12,4 +12,4 @@ const files = ['index.html', 'viewer.js', 'model.js', 'THREE-LICENSE.txt'];
 await Promise.all(files.map((file) => access(path.join(source, file))));
 await mkdir(path.resolve(destination), { recursive: false });
 for (const file of files) await copyFile(path.join(source, file), path.join(destination, file));
-console.log(`Ready: ${path.resolve(destination, 'index.html')}\nYour AI now edits model.js to match your chosen image.`);
+console.log(`Ready: ${path.resolve(destination, 'index.html')}\nYour AI now edits model.js into your design.`);

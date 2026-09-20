@@ -1,6 +1,6 @@
-# From the chosen image to an inspectable model
+# From the brief to an inspectable model
 
-This skill includes a browser viewer and an editable Three.js starter. It does not include an AI model or an automatic image-to-mesh service. You, the coding agent, reconstruct the chosen design from the image with ordinary Three.js geometry, then visually correct it. Use an already-available specialized image-to-3D tool when it improves the result, but don't make a hidden dependency on another personal skill or an unconfigured paid API.
+This skill includes a browser viewer and an editable Three.js starter. It does not include an AI model or an automatic image-to-mesh service. You, the coding agent, build the design with ordinary Three.js geometry from what the user told you - and from a reference image if one exists - then visually correct it against your own renders. A reference sharpens the first attempt; its absence is not a reason to stall or to describe a shape instead of building one. Use an already-available specialized image-to-3D tool when it improves the result, but don't make a hidden dependency on another personal skill or an unconfigured paid API.
 
 ## Start and continue
 
@@ -37,7 +37,7 @@ Use a relative image filename copied into this output folder. Omit `reference` o
 
 ## Reconstruct and review
 
-1. View the selected image. Identify its silhouette, 3–5 defining features, control/port placement and materials. Distinguish observed surfaces from unseen-side assumptions. Use the user's dimensions as the scale source.
+1. Fix the silhouette, 3–5 defining features, control/port placement and materials before writing geometry. View the reference image first if there is one, and distinguish observed surfaces from assumed ones; with no image, state the silhouette you are about to build so the user can correct it in one sentence. Use the user's dimensions as the scale source.
 2. Build connected volumes matching the silhouette, then add defining features. Use bevels, lathe profiles, extruded shapes and curves when the form calls for them. A pile of primitives is only a blockout; round products should have continuous surfaces. Do not auto-distort a generated mesh to hit dimensions.
 3. Look at actual renders. If you can drive a browser, open the viewer and select front/side/back. If you cannot — most sessions cannot — run the renderer, which drives an already-installed Chrome, Edge, Chromium or Brave and needs no npm install or network:
 
@@ -45,7 +45,7 @@ Use a relative image filename copied into this output folder. Omit `reference` o
    node <installed-skill>/scripts/render.mjs <design-folder>
    ```
 
-   It writes `review-front.png`, `review-side.png` and `review-back.png` into the folder. Open them; never describe a render you have not seen. Framing centres the bounding box, so a protruding control shifts the product sideways in a profile view — that is the frame, not an asymmetric model, and must not be "corrected". Compare the same angle with the concept image, especially the outline, proportions and location of features. The reference image helps compare appearance, not prove hidden geometry.
+   It writes `review-front.png`, `review-side.png` and `review-back.png` into the folder. Open them; never describe a render you have not seen. Framing centres the bounding box, so a protruding control shifts the product sideways in a profile view — that is the frame, not an asymmetric model, and must not be "corrected". A control placed at a fixed depth on a curved body gets swallowed by it, so check that every protruding feature still reads from the front AND from the side. If a reference exists, compare the same angle, especially outline, proportions and feature placement; it helps compare appearance, not prove hidden geometry.
 4. Check important features and overall proportion. Use the optional size panel only when size helps the decision. If a must-have is not visible (e.g. no app, desired runtime), preserve it in the brief and label implementation unknown. Bounds cannot prove a battery fits or a connector works; do not require internal packing or precise dimensions to proceed.
 5. Iterate the defective aspect and re-run the renderer, then look again. If no browser can be found at all, say so and ask the user what looks wrong rather than guessing. User-driven changes are not capped; unsuccessful automatic corrections to one defect are bounded by the main Skill.
 6. “Download GLB” reads the exported data back into the viewer before saving, showing “Exported GLB preview”. Inspect its materials and shape. To independently check a saved file, use “Check exported GLB”. Reset returns to the source model. Export is geometry for visual review, not manufacturing CAD. Deliver the full editable folder as well as GLB; a lone HTML file needs its adjacent scripts and image.

@@ -1,6 +1,6 @@
 # Blockless skill
 
-Design a physical product through pictures - take an idea for a device, gadget, enclosure, lamp, tool or appliance from a concept image through the choices that matter to a rotatable 3D model the user keeps. Use whenever someone wants to design, sketch, model, prototype or get built a physical object, whether or not they name Blockless, and when they want to send an existing design or CAD to Blockless for a build estimate or Creator Program review.
+Design a physical product you can turn around - take an idea for a device, gadget, enclosure, lamp, tool or appliance through the choices that matter to a rotatable 3D model the user keeps. Use whenever someone wants to design, sketch, model, prototype or get built a physical object, whether or not they name Blockless, and when they want to send an existing design or CAD to Blockless for a build estimate or Creator Program review.
 
 Install it into a project with any agent:
 
@@ -14,9 +14,10 @@ from this repo with `npx skills add ChrisWu132/blockless-skill`.
 
 ## What it does
 
-It guides a physical product from an idea through a concept image, practical
-trade-offs and an editable 3D model you keep. The viewer runs locally and needs
-no account. Sending the result to Blockless for a build estimate is a separate,
+It takes a physical product from an idea through the trade-offs that matter to
+an editable 3D model you keep. Your agent renders the model with a browser you
+already have, so it needs no image generation, no npm install and no network.
+The viewer runs locally and needs no account. Sending the result to Blockless for a build estimate is a separate,
 optional step that asks for your approval in a browser.
 
 ## Licence
