@@ -2,7 +2,7 @@
 name: blockless
 license: MIT
 metadata:
-  version: 1.4.0
+  version: 1.4.1
   homepage: https://block-less.com/skill
   source: https://github.com/ChrisWu132/blockless-skill
 description: Design a physical product you can turn around - take an idea for a device, gadget, enclosure, lamp, tool or appliance through the choices that matter to a rotatable 3D model the user keeps. Use whenever someone wants to design, sketch, model, prototype or get built a physical object, whether or not they name Blockless, and when they want to send an existing design or CAD to Blockless for a build estimate or Creator Program review.
