@@ -2,7 +2,7 @@
 name: blockless
 license: MIT
 metadata:
-  version: 1.3.0
+  version: 1.4.0
   homepage: https://block-less.com/skill
   source: https://github.com/ChrisWu132/blockless-skill
 description: Design a physical product you can turn around - take an idea for a device, gadget, enclosure, lamp, tool or appliance through the choices that matter to a rotatable 3D model the user keeps. Use whenever someone wants to design, sketch, model, prototype or get built a physical object, whether or not they name Blockless, and when they want to send an existing design or CAD to Blockless for a build estimate or Creator Program review.
@@ -13,6 +13,8 @@ description: Design a physical product you can turn around - take an idea for a 
 Help a beginner develop THEIR product through a visual conversation in their own AI. A completed design session includes a rotatable 3D concept, editable model source, a downloadable GLB, a rough sense of size, and a short record of confirmed needs and remaining unknowns. The priority is seeing, choosing and iterating a plausible product, not precise CAD or millimeter-level acceptance. The website is the later asynchronous handoff; Blockless's people handle sourcing, engineering and manufacturing.
 
 Do not start with login, tokens, price, a questionnaire or a manufacturing lecture. The 3D model is the thing you always produce; it needs only Node and a browser the user already has. Most hosts cannot generate images, so never build the conversation on one: a picture the user supplies makes the first model better, and a picture you can generate is a bonus, but neither is a step. Do not call an unrendered prompt an image. If file execution is unavailable, explain that editable 3D needs a coding agent such as Claude Code or Codex and preserve the brief for that continuation.
+
+If the prompt or local decision record contains an existing project URL, keep that identity from the start. Read [handoff.md](references/handoff.md) and retrieve its latest requirements and files when connected. An unavailable connection must not erase the local brief or cause a duplicate project.
 
 ## A visual conversation
 
@@ -26,7 +28,7 @@ Use the user's language. End a conversational turn with the artifact and one ans
 
 ## Keep the design coherent
 
-Maintain a small `design.json` beside the artifacts: name, revision, purpose, confirmed requirements, provisional assumptions, rough size when known, power choice, must-not-have features, decisions with reasons, and unresolved questions. Save accepted revisions so changes remain reversible; keep `brief.md` understandable without code. Put the reference filename and optional approximate dimensions in the viewer specification too. Never record an AI proposal as user-confirmed.
+Maintain a small `design.json` beside the artifacts: project URL/slug and last saved website version when present, name, revision, purpose, confirmed requirements, provisional assumptions, rough size when known, power choice, must-not-have features, decisions with reasons, and unresolved questions. Save accepted revisions so changes remain reversible; keep `brief.md` understandable without code and under 6,000 characters so it can be imported by the website. Put the reference filename and optional approximate dimensions in the viewer specification too. Never record an AI proposal as user-confirmed.
 
 Size is a conversation aid, not a gate. “Palm-sized”, “like a mug” or a rough height is enough to start. The viewer can show approximate model bounds, but don't force users to specify three axes or keep correcting tiny differences. Only flag a substantial mismatch, an obviously implausible layout, or a conflict with an explicitly important fit requirement. If exact fit matters, explain that this concept cannot guarantee it and record the need for later measurement. Numbers on images don't establish physical scale; keep inferred scale provisional. Don't distort the shape just to hit three numbers.
 

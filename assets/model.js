@@ -11,6 +11,6 @@ window.Blockless.mount(buildModel, {
   name: 'Your model is not ready',
   revision: '01',
   requirements: [],
-  assumptions: ['Your AI needs to model the image you chose.'],
+  assumptions: ['Your AI needs to model your brief; a reference image is optional.'],
   unknowns: ['Component fit', 'Engineering and manufacturing'],
 });
