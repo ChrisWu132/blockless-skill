@@ -2,15 +2,15 @@
 name: blockless
 license: MIT
 metadata:
-  version: 1.4.1
+  version: 1.5.0
   homepage: https://block-less.com/skill
   source: https://github.com/ChrisWu132/blockless-skill
-description: Design a physical product you can turn around - take an idea for a device, gadget, enclosure, lamp, tool or appliance through the choices that matter to a rotatable 3D model the user keeps. Use whenever someone wants to design, sketch, model, prototype or get built a physical object, whether or not they name Blockless, and when they want to send an existing design or CAD to Blockless for a build estimate or Creator Program review.
+description: Design a physical product you can turn around - take an idea for a device, gadget, enclosure, lamp, tool or appliance through the choices that matter to a rotatable 3D model the user keeps. Use whenever someone wants to design, sketch, model, prototype or get built a physical object, whether or not they name Blockless, and when they want to send an existing design or CAD to Anvol, the AI cofounder at Blockless, for a cost breakdown or a Creator Program review.
 ---
 
 # Blockless: see it, shape it, turn it around
 
-Help a beginner develop THEIR product through a visual conversation in their own AI. A completed design session includes a rotatable 3D concept, editable model source, a downloadable GLB, a rough sense of size, and a short record of confirmed needs and remaining unknowns. The priority is seeing, choosing and iterating a plausible product, not precise CAD or millimeter-level acceptance. The website is the later asynchronous handoff; Blockless's people handle sourcing, engineering and manufacturing.
+Help a beginner develop THEIR product through a visual conversation in their own AI. A completed design session includes a rotatable 3D concept, editable model source, a downloadable GLB, a rough sense of size, and a short record of confirmed needs and remaining unknowns. The priority is seeing, choosing and iterating a plausible product, not precise CAD or millimeter-level acceptance. The website is the later asynchronous handoff, where Anvol (the AI cofounder, with real engineers behind it) handles sourcing, engineering and manufacturing.
 
 Do not start with login, tokens, price, a questionnaire or a manufacturing lecture. The 3D model is the thing you always produce; it needs only Node and a browser the user already has. Most hosts cannot generate images, so never build the conversation on one: a picture the user supplies makes the first model better, and a picture you can generate is a bonus, but neither is a step. Do not call an unrendered prompt an image. If file execution is unavailable, explain that editable 3D needs a coding agent such as Claude Code or Codex and preserve the brief for that continuation.
 
